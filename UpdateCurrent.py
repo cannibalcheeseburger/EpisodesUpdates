@@ -1,20 +1,19 @@
 from bs4 import BeautifulSoup as bs
-from urllib.request import urlopen 
+import requests
+
 import datetime
 import pandas as pd
 
 def update_series():
-    df = pd.read_csv("./csv/Choice.csv")
+    df = pd.read_csv("./csv/Choice.csv",index_col=[0])
     df.drop_duplicates(inplace = True)
     today_date = datetime.datetime.today()
 
-    for i in df.index:
-        base_url = "https://www.imdb.com/title/tt"+df["ID"][i]+"/episodes?season="+str(df["Season"][i])+"&ref_=tt_eps_sn_"+str(df["Season"][i])
-        
-        uClient = urlopen(base_url)
-        page_html = uClient.read()
-        uClient.close()
-        page_soup = bs(page_html,"html.parser")
+    for index,row in df.iterrows():
+        base_url = "https://www.imdb.com/title/tt"+(7-len(row["ID"])*str(0)+str(row["ID"])+"/episodes?season="+str(row["Season"])+"&ref_=tt_eps_sn_"+str(row["Season"])   
+        print(base_url)
+        req = requests.get(base_url,verify=False)
+        page_soup = bs(req.text,"html.parser")
         ep_list_container = page_soup.find_all("div",class_ = "info")
 
         for i in range(len(ep_list_container)-1,-1,-1):
@@ -26,11 +25,11 @@ def update_series():
             else:
                 air_date = datetime.datetime.strptime(ep_list.div.text.strip(), '%d %b %Y')
             if air_date <= today_date:
-                df["Last_ep"][i] = ep_list.a.text
-                df["Aired on"][i] = air_date.date()])
+                df.loc[index,"Last_ep"] = ep_list.a.text
+                df.loc[index,"Aired on"] = air_date.date()
                 break
 
-    df.to_csv("./csv/Choice.csv",header=False)
+    df.to_csv("./csv/Current.csv")
     print(df)
 
 if __name__ =="__main__":

@@ -8,7 +8,6 @@ def add_series():
     df = pd.DataFrame(columns=header)
     while(True):
         movie = input("Enter name of Series:")
-        details = []
         movie_obj =  ia.search_movie(movie)
         for mov in movie_obj:
             tv = ia.get_movie(mov.movieID)
@@ -17,7 +16,7 @@ def add_series():
             choice = input("Is this it?(Y/N/next)").lower()
             if choice == "y":
                 season = input("Enter Season Number:")
-                df = df.append(pd.Series([mov.movieID,tv.get('title'),season],index = header[:3]),ignore_index=True)
+                df = df.append(pd.Series([str(mov.movieID),tv.get('title'),season],index = header[:3]),ignore_index=True)
                 break
             elif choice == "next":
                 continue
