@@ -2,20 +2,44 @@
 
 It is a web scraper designed to give the list of latest episodes of choice based on content from <a href="https://www.imdb.com/">imdb.com</a>.
 
+## Installation
+---
 To install dependencies:
 
 ```
-pip install -r requirements.txt
+pip install -r --user requirements.txt
 ```
 To run:
 
 ```
-python EZLife.py
+python main.py
 ```
 
-### A snippet of output: 
+##  Overview 
+---
+### 1. Main Menu
+ - Select one of the options of you choice
+  <img src="./img/main.png" alt="snippet of main menu">
 
-<img src="./img/snip.png" alt="snippet of output">
+### 2. Adding new series to you choice list
+ - Enter name of the series you want to add
+   - A brief plot of story will appear
+   - Answer with Y(YES)/N(NO)/NEXT(LITERALLY NEXT) if it was what you had in mind
+ - Enter the season of series you want to stalk
+ - Again y/n if you want to add another series to list   
 
-For now it just prints the information of last episode aired. 
-Gonna change it soon.
+<img src="./img/Add.png" alt="snippet of adding entries">
+
+### 3. Display the list 
+ - Pretty straight forwar
+
+<img src="./img/Display.png" alt="snippet of display screen">
+
+### 4. Update the dates of airing of latest episodes of series
+ - Again ,coudn't be more straight forward
+
+<img src="./img/Update.png" alt="snippet of update">
+
+## APIs
+---
+Most of the work if done using webscraping but i found these APIs that helped a lot <a href="https://github.com/alberanid/imdbpy">https://github.com/alberanid/imdbpy</a>.
