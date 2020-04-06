@@ -1,0 +1,6 @@
+beautifulsoup4==4.9.0
+bs4==0.0.1
+DateTime==4.3
+pytz==2019.3
+soupsieve==2.0
+zope.interface==5.0.2
