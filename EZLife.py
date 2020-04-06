@@ -2,7 +2,10 @@ from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen 
 import datetime
 from texttable import Texttable
+import imdb
 
+ia = imdb.IMDb()
+movie = 
 today_date = datetime.datetime.today()
 urls = {"Brooklyn Nine-Nine":"https://www.imdb.com/title/tt2467372/episodes?season=7&ref_=tt_eps_sn_7",
         "The Walking Dead":"https://www.imdb.com/title/tt1520211/episodes?season=10&ref_=tt_eps_sn_10",
@@ -21,7 +24,7 @@ for url in urls.keys():
     page_soup = bs(page_html,"html.parser")
     ep_list_container = page_soup.find_all("div",class_ = "info")
 
-    for i in range(len(ep_list_container)-1,0,-1):
+    for i in range(len(ep_list_container)-1,-1,-1):
         ep_list =ep_list_container[i]
         if ep_list.div.text.strip()=="":
             continue
