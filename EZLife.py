@@ -5,7 +5,11 @@ import datetime
 today_date = datetime.datetime.today()
 urls = {"Brooklyn Nine-Nine":"https://www.imdb.com/title/tt2467372/episodes?season=7&ref_=tt_eps_sn_7",
         "The Walking Dead":"https://www.imdb.com/title/tt1520211/episodes?season=10&ref_=tt_eps_sn_10",
-        "Westworld":"https://www.imdb.com/title/tt0475784/episodes?season=3&ref_=tt_eps_sn_3"}
+        "Westworld":"https://www.imdb.com/title/tt0475784/episodes?season=3&ref_=tt_eps_sn_3",
+        "Schitt's Creek":"https://www.imdb.com/title/tt3526078/episodes?season=6&ref_=tt_eps_sn_6",
+        "Rick and Morty":"https://www.imdb.com/title/tt2861424/episodes?season=4&ref_=tt_eps_sn_4",
+        "Dave":"https://www.imdb.com/title/tt8531222/episodes?season=1&ref_=tt_eps_sn_1",
+        "Ramayan":"https://www.imdb.com/title/tt0268093/episodes?season=1&ref_=tt_eps_sn_1"}
 
 for url in urls.keys():
     uClient = urlopen(urls[url])

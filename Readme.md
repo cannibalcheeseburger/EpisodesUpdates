@@ -13,5 +13,9 @@ To run:
 python EZLife.py
 ```
 
+### A snippet of output: 
+
+<img src="./img/snippet.png">
+
 For now it just prints the information of last episode aired. 
 Gonna change it soon
