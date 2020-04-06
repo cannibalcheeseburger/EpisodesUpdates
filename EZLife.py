@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen 
 import datetime
+from texttable import Texttable
 
 today_date = datetime.datetime.today()
 urls = {"Brooklyn Nine-Nine":"https://www.imdb.com/title/tt2467372/episodes?season=7&ref_=tt_eps_sn_7",
@@ -10,7 +11,8 @@ urls = {"Brooklyn Nine-Nine":"https://www.imdb.com/title/tt2467372/episodes?seas
         "Rick and Morty":"https://www.imdb.com/title/tt2861424/episodes?season=4&ref_=tt_eps_sn_4",
         "Dave":"https://www.imdb.com/title/tt8531222/episodes?season=1&ref_=tt_eps_sn_1",
         "Ramayan":"https://www.imdb.com/title/tt0268093/episodes?season=1&ref_=tt_eps_sn_1"}
-
+table = Texttable()
+table.header(["Series","Ep_name","Aired on"])
 for url in urls.keys():
     uClient = urlopen(urls[url])
     page_html = uClient.read()
@@ -28,6 +30,7 @@ for url in urls.keys():
         else:
             air_date = datetime.datetime.strptime(ep_list.div.text.strip(), '%d %b %Y')
         if air_date <= today_date:
-            print(url+": "+ep_list.a.text+"\tAired at:",air_date.date())
+            table.add_row([url,ep_list.a.text,air_date.date()])
             break
-
+   
+print(table.draw())        
