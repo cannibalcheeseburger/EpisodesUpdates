@@ -18,25 +18,25 @@ python main.py
 ##  Overview 
 ---
 ### 1. Main Menu
- - Select one of the options of you choice
+ - Select one of the options of your choice
   <img src="./img/main.png" alt="snippet of main menu">
 
 ### 2. Adding new series to you choice list
  - Enter name of the series you want to add
    - A brief plot of story will appear
-   - Answer with Y(YES)/N(NO)/NEXT(LITERALLY NEXT) if it was what you had in mind
+   - Answer with Y(YES)/N(NO)/NEXT(LITERALLY NEXT) if it wasn't what you had in mind
  - Enter the season of series you want to stalk
  - Again y/n if you want to add another series to list   
 
 <img src="./img/Add.png" alt="snippet of adding entries">
 
 ### 3. Display the list 
- - Pretty straight forwar
+ - Pretty straight forward
 
 <img src="./img/Display.png" alt="snippet of display screen">
 
 ### 4. Update the dates of airing of latest episodes of series
- - Again ,coudn't be more straight forward
+ - Again, couldn't be more straight forward
 
 <img src="./img/Update.png" alt="snippet of update">
 
