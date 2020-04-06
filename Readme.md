@@ -1,6 +1,6 @@
 # Episodes Updater
 
-It is a web scraper designed to give the list of latest episodes of choice based on content from [imdb.com]("https://www.imdb.com/").
+It is a web scraper designed to give the list of latest episodes of choice based on content from <a href="https://www.imdb.com/">imdb.com</a>.
 
 To install dependencies:
 
