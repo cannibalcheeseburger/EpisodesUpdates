@@ -15,7 +15,7 @@ python EZLife.py
 
 ### A snippet of output: 
 
-<img src="./img/snippet.png">
+<img src="./img/snip.png" alt="snippet of output">
 
 For now it just prints the information of last episode aired. 
 Gonna change it soon.
