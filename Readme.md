@@ -42,4 +42,4 @@ python main.py
 
 ## APIs
 ---
-Most of the work if done using webscraping but i found these APIs that helped a lot <a href="https://github.com/alberanid/imdbpy">https://github.com/alberanid/imdbpy</a>.
+Most of the work was done by webscraping but i found these APIs that helped a lot <a href="https://github.com/alberanid/imdbpy">https://github.com/alberanid/imdbpy</a>.
