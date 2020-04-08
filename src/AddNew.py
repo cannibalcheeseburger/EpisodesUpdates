@@ -24,7 +24,7 @@ def add_series():
                 break
         loop = input("Add more?(y/n):").lower()
         if loop =="n":
-            df.to_csv('./csv/Choice.csv', mode='a', header=False)
+            df.to_csv('../csv/Choice.csv', mode='a', header=False)
             print(df)
             break    
 

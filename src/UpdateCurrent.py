@@ -4,7 +4,7 @@ import datetime
 import pandas as pd
 
 def update_series():
-    df = pd.read_csv("./csv/Choice.csv")
+    df = pd.read_csv("../csv/Choice.csv")
     df.drop_duplicates(inplace = True)
     today_date = datetime.datetime.today()
 
@@ -30,7 +30,7 @@ def update_series():
                 df.loc[index,"Aired on"] = air_date.date()
                 break
     df = df.iloc[:,1:]            
-    df.to_csv("./csv/Current.csv")
+    df.to_csv("../csv/Current.csv")
     print(df)
 
 if __name__ =="__main__":

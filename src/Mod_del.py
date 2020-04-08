@@ -4,7 +4,7 @@ import display
 import os
 
 def mod_del():
-    df = pd.read_csv("./csv/Choice.csv",index_col=[0])
+    df = pd.read_csv("../csv/Choice.csv",index_col=[0])
     while(True):
         display.display_series()
         print(df)

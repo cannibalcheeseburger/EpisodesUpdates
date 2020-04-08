@@ -1,8 +1,6 @@
 import datetime
 from texttable import Texttable
-import AddNew
-import UpdateCurrent
-import display
+from src import AddNew, display, UpdateCurrent
 import os
 
 def main():
