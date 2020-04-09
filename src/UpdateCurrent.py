@@ -2,8 +2,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 import datetime
 import sqlite3
-import display
-
+from src import display
 def update_series():
     conn = sqlite3.connect("./movies.db")
     c = conn.cursor()

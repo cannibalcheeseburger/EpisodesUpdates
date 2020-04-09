@@ -1,7 +1,7 @@
 import sqlite3
 from texttable import Texttable
-import display
 import os
+from src import display
 
 def mod_del():
     conn = sqlite3.connect("./movies.db")

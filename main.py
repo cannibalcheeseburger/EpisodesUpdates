@@ -2,10 +2,7 @@ import datetime
 from texttable import Texttable
 import os
 import sqlite3
-import AddNew
-import display
-import UpdateCurrent
-import Mod_del
+from src import AddNew,display,UpdateCurrent,Mod_del
 
 def create_db():
     conn = sqlite3.connect("./movies.db")
@@ -17,7 +14,7 @@ def create_db():
 
 def main():
     while(True):
-        choose = int(input("1.Add Series\n2.Display Cached Series List\n3.Update List\n4.Modify\Delete an Entry from List\n0.Quit\nEnter your choice(0-4): "))
+        choose = int(input("1.Add Series\n2.Display Cached Series List \n3.Update List\n4.Modify\Delete an Entry from List\n0.Quit\nEnter your choice(0-4): "))
         os.system("clear")
         if choose == 1:
             AddNew.add_series()
