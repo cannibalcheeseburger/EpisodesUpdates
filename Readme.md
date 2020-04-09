@@ -2,12 +2,16 @@
 
 It is a web scraper designed to give the list of latest episodes of choice based on content from <a href="https://www.imdb.com/">imdb.com</a>.
 
+Added SQLite support . We now use SQLite instead to pandas with CSVs. Pretty good update in my opnion though the jury's still out.
+
+Would really like someone to make a ui cuz its ugly.
+
 ## Installation
 ---
 To install dependencies:
 
 ```
-pip install -r --user requirements.txt
+python -m pip install -r --user requirements.txt
 ```
 To run:
 
