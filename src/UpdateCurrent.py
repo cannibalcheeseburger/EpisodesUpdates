@@ -40,6 +40,8 @@ def update_series():
     #df = df.iloc[:,1:]            
    # df.to_csv("./csv/Current.csv")
     display.display_series()
+    c.close()
+    conn.close()
     
 if __name__ =="__main__":
     update_series()
