@@ -1,21 +1,17 @@
 import requests
 from bs4 import BeautifulSoup as bs
 import datetime
-import pandas as pd
 import sqlite3
 import display
 
 def update_series():
     conn = sqlite3.connect("./movies.db")
     c = conn.cursor()
-  #  df = pd.read_csv("./csv/Choice.csv")
-  #  df.drop_duplicates(inplace = True)
     today_date = datetime.datetime.today()
 
     c.execute("SELECT ID,Name,Season FROM series")
-    
-   # for index,row in df.iterrows():
-    for i,name,sea in c.fetchall():
+    fetch = c.fetchall()
+    for i,name,sea in fetch:
         zeroes = "0"*(7-int(len(str(i))))
         base_url = "https://www.imdb.com/title/tt"+zeroes+str(i)+"/episodes?season="+str(sea)+"&ref_=tt_eps_sn_"+str(sea)
         r = requests.get(base_url,verify =False)
@@ -33,12 +29,10 @@ def update_series():
             else:
                 air_date = datetime.datetime.strptime(ep_list.div.text.strip(), '%d %b %Y')
             if air_date <= today_date:
-                c.execute("""UPDATE series SET Last_ep =(?),Aired_on =(?) WHERE ID = (?)""",[ep_list.a.text,air_date.date(),i])
-           #     df.loc[index,"Last_ep"] = ep_list.a.text
-          #      df.loc[index,"Aired on"] = air_date.date()
+                print(ep_list.a.text,air_date.date(),i)
+                c.execute("""UPDATE series SET Last_ep = ?,Aired_on = ? WHERE Name = ?""",[str(ep_list.a.text),str(air_date.date()),name])
+                conn.commit()
                 break
-    #df = df.iloc[:,1:]            
-   # df.to_csv("./csv/Current.csv")
     display.display_series()
     c.close()
     conn.close()
