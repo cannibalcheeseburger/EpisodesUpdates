@@ -2,6 +2,15 @@ import datetime
 from texttable import Texttable
 from src import AddNew, display, UpdateCurrent
 import os
+import sqlite3
+
+def create_db():
+    conn = sqlite3.connect("./movies.db")
+    c = conn.cursor()
+    c.execute("CREATE TABLE IF NOT EXISTS series (ID INTEGER PRIMARY KEY ,Name TEXT,Season INTEGER,Last_ep TEXT,Aired_on TEXT)")
+    conn.commit()
+    c.close()
+    conn.close()
 
 def main():
     while(True):
@@ -23,4 +32,5 @@ def main():
         os.system('clear')
 
 if __name__ == "__main__":
+    create_db()
     main()   

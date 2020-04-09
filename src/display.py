@@ -1,13 +1,18 @@
 from texttable import Texttable
 import pandas as pd
+import sqlite3
 
-def display_series():   
-    df =pd.read_csv("./csv/Current.csv",index_col=[0])
+def display_series():
+    conn = sqlite3.connect("./movies.db")
+    c = conn.cursor()   
     table = Texttable()
-    table.header(["Name","Ep_name","Season","Aired on"])
-    for index,row in df.iterrows():
-        table.add_row([row["Name"],row["Last_ep"],row["Season"],row["Aired on"]])    
-    print(table.draw())        
+    table.header(["ID","Name","Ep_name","Season","Aired on"])
+    c.execute("SELECT * FROM series")
+    for tup in c.fetchall():
+        table.add_row(tup)    
+    print(table.draw())    
+    c.close()
+    conn.close()    
 
 if __name__ =="__main__":
     display_series()    
